@@ -5,7 +5,6 @@
 {%- set user_config = salt['pillar.get']('awscli:users:%s:config'|format(name), {}) %}
 {%- set user_homedir = salt['pillar.get']('awscli:users:%s:homedir'|format(name), '/home/' ~ name) %}
 
-{% if name in salt['user.list_users']() %}
 {{ name }}_awscli_config:
   file.managed:
     - name: {{ user_homedir }}/.aws/config
@@ -29,6 +28,5 @@
         {%- for k, v in user_config.iteritems() %}
         {{ k }} = {{ v }}
         {% endfor %}
-{% endif %}
 
 {% endfor %}
