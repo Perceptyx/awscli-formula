@@ -13,7 +13,7 @@
     - makedirs: True
     - contents: |
         [default]
-        {%- for k, v in user_config.iteritems() %}
+        {%- for k, v in user_config.items() %}
         {{ k }} = {{ v }}
         {% endfor %}
 
@@ -25,7 +25,7 @@
     - makedirs: True
     - contents: |
         [default]
-        {%- for k, v in user_config.iteritems() %}
+        {%- for k, v in user_config.items() %}
         {{ k }} = {{ v }}
         {% endfor %}
 
